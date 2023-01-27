@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "360718300653",
+    "project_id": "bootcampmaterial-f9300",
+    "storage_bucket": "bootcampmaterial-f9300.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360718300653:android:c1e2824ea55e2cacdd63e4",
+        "android_client_info": {
+          "package_name": "com.example.final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360718300653-rc0ficdgd595rjtac50lue5s60ssd4kr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMP6PzGjdezVSbZ9LUt7b2HO04sva0nww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360718300653-rc0ficdgd595rjtac50lue5s60ssd4kr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
