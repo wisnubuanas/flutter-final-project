@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Colors.red,
           title: Center(
             child: Text(
               'Incorrect Email',
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Colors.red,
           title: Center(
             child: Text(
               'Incorrect Password',
