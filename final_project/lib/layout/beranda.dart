@@ -11,10 +11,11 @@ class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey.shade900,
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.green[900],
         centerTitle: true,
-        title: Text("Traveloka"),
+        title: Text("Nigga Pay"),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(50),
           child: Padding(
@@ -65,7 +66,7 @@ class _BerandaState extends State<Beranda> {
           Divider(),
           MenuUtama(),
           // MenuTambahan(),
-          Promo(),
+          Promosi(),
         ],
       ),
     );
@@ -81,12 +82,12 @@ class Akun extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       height: 70,
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: Colors.green[900],
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-              color: Color(0xFFe8e8e8), blurRadius: 5, offset: Offset(0, 5)),
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //       color: Color(0xFFe8e8e8), blurRadius: 5, offset: Offset(0, 5)),
+        // ],
 
         // Icon(Icons.qr_code_2),
       ),
@@ -290,9 +291,10 @@ class MenuUtamaItem extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
+                fontSize: 12,
+                color: Colors.white,
+                // fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
           )
@@ -302,8 +304,8 @@ class MenuUtamaItem extends StatelessWidget {
   }
 }
 
-class Promo extends StatelessWidget {
-  const Promo({super.key});
+class Promosi extends StatelessWidget {
+  const Promosi({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -312,12 +314,15 @@ class Promo extends StatelessWidget {
         ListTile(
           title: Text(
             'Promo Saat Ini',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22.0),
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 22.0,
+                color: Colors.white),
           ),
           trailing: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_right,
-              color: Colors.blue,
+              color: Colors.green[900],
             ),
             onPressed: () {},
           ),
@@ -396,7 +401,7 @@ class Promo extends StatelessWidget {
                 height: 150.0,
                 width: 300.0,
                 child: null,
-              )
+              ),
             ],
           ),
         )

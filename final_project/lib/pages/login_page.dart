@@ -4,7 +4,8 @@ import 'package:final_project/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  final Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -167,6 +168,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   // sign in button
                   MyButton(
+                    text: "Sign In",
                     onTap: signUserIn,
                   ),
 
@@ -183,11 +185,14 @@ class _LoginPageState extends State<LoginPage> {
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                         const SizedBox(width: 4),
-                        const Text(
-                          'Register',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
+                        GestureDetector(
+                          onTap: widget.onTap,
+                          child: const Text(
+                            'Register',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],

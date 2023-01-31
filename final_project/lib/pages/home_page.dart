@@ -1,19 +1,31 @@
+import 'package:final_project/layout/promo.dart';
+import 'package:final_project/layout/riwayat.dart';
+import 'package:final_project/pages/auth_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'beranda.dart';
+import '../layout/beranda.dart';
+import '../layout/pembayaran.dart';
+import '../layout/profil.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Traveloka Clone',
+      title: 'Nigga App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      // theme: ThemeData(
+      //     // primarySwatch: Colors.green,
+      //     ),
+      home: MyHomePage(
+        title: 'Nigga App',
       ),
-      home: MyHomePage(title: 'Traveloka'),
     );
   }
 }
@@ -31,10 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final _layoutPage = [
     Beranda(),
-    // Explore(),
-    // Pesanan(),
-    // Simpan(),
-    // Profil(),
+    Riwayat(),
+    Pembayaran(),
+    Promo(),
+    Profil(),
   ];
 
   void _onTabItem(int index) {
@@ -51,6 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // ),
       body: _layoutPage.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.green[900],
+        unselectedItemColor: Colors.white,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
