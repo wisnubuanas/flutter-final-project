@@ -1,81 +1,41 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Profil extends StatefulWidget {
-  const Profil({super.key});
+class Profil extends StatelessWidget {
+  Profil({super.key});
 
-  @override
-  State<Profil> createState() => _ProfilState();
-}
+  final user = FirebaseAuth.instance.currentUser!;
 
-class _ProfilState extends State<Profil> {
+  // sign user out method
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         centerTitle: true,
-        title: Text("Traveloka"),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.70,
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "Beragam pilihan nikmatin hidup",
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide.none),
-                        // icon: Icon(Icons.notification_add),
-                        filled: true,
-                        fillColor: Colors.white),
-                    // style: Colors.white,
-                  ),
-                ),
-                Icon(
-                  Icons.notifications,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.email_outlined,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                ),
-              ],
-            ),
-          ),
-        ),
-        // title: Text("Traveloka"),
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: Icon(Icons.more_horiz),
-        //   ),
-        // ],
+        title: Text(" Akun Saya"),
       ),
       body: Container(
-        color: Color.fromARGB(255, 216, 216, 216),
         child: Column(
+          // color: Colors.deepPurple,
           children: [
             Container(
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               height: 150,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey[900],
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      color: Color(0xFFe8e8e8),
-                      blurRadius: 5,
-                      offset: Offset(0, 5))
-                ],
+                // boxShadow: [
+                //   BoxShadow(
+                //       color: Color(0xFFe8e8e8),
+                //       blurRadius: 5,
+                //       offset: Offset(0, 5))
+                // ],
               ),
               child: Column(
                 children: [
@@ -91,14 +51,17 @@ class _ProfilState extends State<Profil> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 10, top: 20),
-                            child: Text('Rei Ayanami',
+                            child: Text('Nama User',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20)),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                )),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 3, top: 5),
                             child: Text(
-                              '+62814848484848',
+                              '********* Norek',
                               style:
                                   TextStyle(fontSize: 12, color: Colors.grey),
                             ),
@@ -114,27 +77,49 @@ class _ProfilState extends State<Profil> {
                       )
                     ],
                   ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Container(
-                        height: 30,
-                        width: 350,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 4, 76, 135),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Center(
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text("Lihat Profil Saya"),
-                            style: TextButton.styleFrom(primary: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Center(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.only(top: 20),
+                  //     child: Container(
+                  //       height: 30,
+                  //       width: 350,
+                  //       decoration: BoxDecoration(
+                  //         color: Color.fromARGB(255, 4, 76, 135),
+                  //         borderRadius: BorderRadius.circular(5),
+                  //       ),
+                  //       child: Center(
+                  //         child: TextButton(
+                  //           onPressed: () {},
+                  //           child: Text("Lihat Profil Saya"),
+                  //           style: TextButton.styleFrom(primary: Colors.white),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              height: 30,
+              width: 400,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Center(
+                  child: TextButton(
+                    onPressed: signUserOut,
+                    child: Text("Keluar"),
+                    style: TextButton.styleFrom(primary: Colors.white),
+                  ),
+                ),
               ),
             ),
           ],
