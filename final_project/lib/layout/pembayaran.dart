@@ -24,11 +24,21 @@ class Pembayaran extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-          child: Text(
-        "LOGGED IN AS: " + user.email!,
-        style: TextStyle(fontSize: 20),
-      )),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              "LOGGED IN AS: " + user.email!,
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Text(
+            "Fitur ini untuk sementara belum dapat digunakan",
+            style: TextStyle(color: Colors.red, fontStyle: FontStyle.italic),
+          )
+        ],
+      ),
     );
   }
 }

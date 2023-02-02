@@ -42,7 +42,7 @@ class Riwayat extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.grey[900]),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 250),
+                    padding: const EdgeInsets.only(top: 10, left: 250),
                     child: Text(
                       "+ Rp. 900000",
                       style: TextStyle(
@@ -64,14 +64,17 @@ class Riwayat extends StatelessWidget {
                       color: Colors.grey[900],
                       borderRadius: BorderRadius.circular(10)),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    // mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "- Rp. 900000",
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 250),
+                        child: Text(
+                          "- Rp. 900000",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),

@@ -73,27 +73,27 @@ class Beranda extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            "NiggaPay",
+                            "NogiPay",
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
-                          // Icon(
-                          //   Icons.discord,
-                          //   size: 24,
-                          // ),
+                          Icon(
+                            Icons.square_foot,
+                            size: 24,
+                          ),
                         ],
                       ),
                       // Spacer(),
                       Padding(
-                        padding: const EdgeInsets.only(top: 8.0, left: 8),
+                        padding: const EdgeInsets.only(top: 4.0, left: 8),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           // mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              "Balance",
+                              "Saldo",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
+                                  fontWeight: FontWeight.bold, fontSize: 15),
                             ),
                             SizedBox(
                               height: 6,
@@ -123,7 +123,7 @@ class Beranda extends StatelessWidget {
                             Text(
                               "REI AYANAMI",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  fontWeight: FontWeight.bold, fontSize: 18),
                             ),
                           ],
                         ),

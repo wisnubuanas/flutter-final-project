@@ -18,13 +18,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nigga App',
+      title: 'NogiApps',
       debugShowCheckedModeBanner: false,
       // theme: ThemeData(
       //     // primarySwatch: Colors.green,
       //     ),
       home: MyHomePage(
-        title: 'Nigga App',
+        title: 'NogiApps',
       ),
     );
   }
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.qr_code_scanner_outlined),
-            label: ("Pembayaran"),
+            label: ("QRIS"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.percent_outlined),

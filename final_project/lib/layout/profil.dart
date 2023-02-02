@@ -44,16 +44,16 @@ class Profil extends StatelessWidget {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 30, top: 20),
+                          padding: const EdgeInsets.only(left: 30, top: 30),
                           child: CircleAvatar(
                               backgroundColor:
                                   Color.fromARGB(255, 218, 217, 217),
-                              radius: 30),
+                              radius: 40),
                         ),
                         Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 20),
+                              padding: const EdgeInsets.only(left: 10, top: 30),
                               child: Text('Rei Ayanami',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
