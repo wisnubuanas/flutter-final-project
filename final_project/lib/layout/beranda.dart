@@ -1,3 +1,5 @@
+import 'package:final_project/components/more_apps.dart';
+import 'package:final_project/layout/promo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,213 +18,304 @@ class Beranda extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       // appBar: AppBar(
-      //   backgroundColor: Colors.grey[900],
+      //   backgroundColor: Colors.black,
       //   actions: [
       //     IconButton(
-      //       onPressed: signUserOut,
-      //       icon: Icon(Icons.logout),
+      //       onPressed: () {},
+      //       icon: Icon(Icons.notifications),
       //     )
       //   ],
       // ),
-      body: Container(
-        child: Column(
-          // color: Colors.deepPurple,
-          children: [
-            // Container(
-            //   margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            //   height: 30,
-            //   width: 400,
-            //   decoration: BoxDecoration(
-            //     color: Colors.white,
-            //     borderRadius: BorderRadius.circular(10),
-            //   ),
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       color: Colors.green.shade900,
-            //       borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: Center(
-            //       child: TextButton(
-            //         onPressed: signUserOut,
-            //         child: Text("Keluar"),
-            //         style: TextButton.styleFrom(primary: Colors.white),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+      body: SingleChildScrollView(
+        child: Container(
+            child: Column(
+                // color: Colors.deepPurple,
+                children: [
+              // Container(
+              //   margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              //   height: 30,
+              //   width: 400,
+              //   decoration: BoxDecoration(
+              //     color: Colors.white,
+              //     borderRadius: BorderRadius.circular(10),
+              //   ),
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color: Colors.green.shade900,
+              //       borderRadius: BorderRadius.circular(5),
+              //     ),
+              //     child: Center(
+              //       child: TextButton(
+              //         onPressed: signUserOut,
+              //         child: Text("Keluar"),
+              //         style: TextButton.styleFrom(primary: Colors.white),
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
-            SizedBox(
-              height: 50,
-            ),
-            Container(
-              height: 200,
-              width: 400,
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-                borderRadius: BorderRadius.circular(8),
+              SizedBox(
+                height: 40,
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
+              Container(
+                height: 200,
+                width: 400,
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "NiggaPay",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          // Icon(
+                          //   Icons.discord,
+                          //   size: 24,
+                          // ),
+                        ],
+                      ),
+                      // Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0, left: 8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Balance",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Rp. ",
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                                Text(
+                                  "123.456",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 50),
+                            Text(
+                              "2819 **** **** **** 8010",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            SizedBox(
+                              height: 7,
+                            ),
+                            Text(
+                              "REI AYANAMI",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // SizedBox(height: 20),
+                      // Text(
+                      //   "Rp. 1273970",
+                      //   style: TextStyle(fontWeight: FontWeight.bold),
+                      // )
+                    ],
+                  ),
+                ),
+              ),
+              // SizedBox(
+              //   height: 5,
+              // ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "NiggaPay",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                    Container(
+                      height: 100,
+                      width: 130,
+                      child: GestureDetector(
+                        onTap: () {
+                          print("transfer");
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Icon(
+                                Icons.compare_arrows,
+                                size: 30,
+                                color: Colors.white,
+                              ),
+                            ),
+                            // Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12.0),
+                              child: Text(
+                                "Transfer",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            )
+                          ],
                         ),
-                        Icon(
-                          Icons.discord,
-                          size: 24,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[900],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 6,
+                    ),
+                    Container(
+                      height: 100,
+                      width: 130,
+                      child: GestureDetector(
+                        onTap: () {
+                          print("isi");
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Icon(
+                                Icons.add,
+                                size: 30,
+                                color: Colors.white,
+                              ),
+                            ),
+                            // Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12.0),
+                              child: Text(
+                                "Isi Saldo",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            )
+                          ],
                         ),
-                      ],
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[900],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
-                    Spacer(),
-                    Text(
-                      "Nama User",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    SizedBox(
+                      width: 6,
                     ),
-                    Text("2819 **** **** **** 8010"),
-                    // SizedBox(5),
-                    Text(
-                      "Rp. 1273970",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    Container(
+                      height: 100,
+                      width: 130,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MoreApps()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Icon(
+                                Icons.more_horiz_outlined,
+                                size: 30,
+                                color: Colors.white,
+                              ),
+                            ),
+                            // Spacer(),
+                            // SizedBox(height: 10,),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12.0),
+                              child: Text(
+                                "Lainnya",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[900],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(
+                        'Promo saat ini',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
+                            color: Colors.white),
+                      ),
+                      trailing: IconButton(
+                        icon: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.deepPurple,
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Promo()));
+                        },
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.blue,
+                                Colors.blue.shade800,
+                              ]),
+                          borderRadius: BorderRadius.circular(8.0),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                'images/promo-3.jpg',
+                              ),
+                              fit: BoxFit.cover)),
+                      margin: EdgeInsets.only(bottom: 5.0),
+                      height: 150.0,
+                      width: 400.0,
+                      child: null,
+                    ),
+                    SizedBox(
+                      height: 30,
                     )
                   ],
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 130,
-                    child: GestureDetector(
-                      onTap: () {
-                        print("transfer");
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: Icon(
-                              Icons.call_made,
-                              size: 30,
-                              color: Colors.white,
-                            ),
-                          ),
-                          // Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12.0),
-                            child: Text(
-                              "Transfer",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 100,
-                    width: 130,
-                    child: GestureDetector(
-                      onTap: () {
-                        print("bayar");
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: Icon(
-                              Icons.qr_code_scanner_outlined,
-                              size: 30,
-                              color: Colors.white,
-                            ),
-                          ),
-                          // Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12.0),
-                            child: Text(
-                              "Bayar",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 100,
-                    width: 130,
-                    child: GestureDetector(
-                      onTap: () {
-                        print("top up");
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: Icon(
-                              Icons.add_circle_outline,
-                              size: 30,
-                              color: Colors.white,
-                            ),
-                          ),
-                          // Spacer(),
-                          // SizedBox(height: 10,),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12.0),
-                            child: Text(
-                              "Top Up",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
+            ])),
       ),
     );
   }
