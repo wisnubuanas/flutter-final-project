@@ -14,9 +14,9 @@ class Pembayaran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: Colors.black,
         actions: [
           IconButton(
             onPressed: signUserOut,
@@ -28,15 +28,28 @@ class Pembayaran extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Text(
-              "LOGGED IN AS: " + user.email!,
-              style: TextStyle(fontSize: 20),
+            child:
+                // Icon(
+                //   Icons.cancel_outlined,
+                //   color: Colors.red,
+                //   size: 50,
+                // ),
+                Text(
+              "Anda sedang masuk dengan menggunakan akun : " + user.email!,
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Text(
             "Fitur ini untuk sementara belum dapat digunakan",
-            style: TextStyle(color: Colors.red, fontStyle: FontStyle.italic),
-          )
+            style: TextStyle(
+                color: Colors.red, fontStyle: FontStyle.italic, fontSize: 16),
+          ),
         ],
       ),
     );

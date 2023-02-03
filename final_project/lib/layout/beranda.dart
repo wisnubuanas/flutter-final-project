@@ -1,4 +1,6 @@
 import 'package:final_project/components/more_apps.dart';
+import 'package:final_project/components/topup.dart';
+import 'package:final_project/components/transfer.dart';
 import 'package:final_project/layout/promo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -72,14 +74,14 @@ class Beranda extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
+                          Icon(
+                            Icons.signal_cellular_4_bar,
+                            size: 24,
+                          ),
                           Text(
                             "NogiPay",
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          Icon(
-                            Icons.square_foot,
-                            size: 24,
                           ),
                         ],
                       ),
@@ -95,9 +97,9 @@ class Beranda extends StatelessWidget {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15),
                             ),
-                            SizedBox(
-                              height: 6,
-                            ),
+                            // SizedBox(
+                            //   height: 3,
+                            // ),
                             Row(
                               children: [
                                 Text(
@@ -112,7 +114,7 @@ class Beranda extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 50),
+                            SizedBox(height: 60),
                             Text(
                               "2819 **** **** **** 8010",
                               style: TextStyle(fontSize: 16),
@@ -150,7 +152,10 @@ class Beranda extends StatelessWidget {
                       width: 130,
                       child: GestureDetector(
                         onTap: () {
-                          print("transfer");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Transfer()));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -188,7 +193,8 @@ class Beranda extends StatelessWidget {
                       width: 130,
                       child: GestureDetector(
                         onTap: () {
-                          print("isi");
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => TopUp()));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -304,7 +310,7 @@ class Beranda extends StatelessWidget {
                                 'images/promo-3.jpg',
                               ),
                               fit: BoxFit.cover)),
-                      margin: EdgeInsets.only(bottom: 5.0),
+                      // margin: EdgeInsets.only(bottom: 5.0),
                       height: 150.0,
                       width: 400.0,
                       child: null,

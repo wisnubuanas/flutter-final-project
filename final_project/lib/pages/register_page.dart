@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:final_project/components/my_button.dart';
 import 'package:final_project/components/my_textfield.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -13,6 +16,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   // text editing controllers
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -20,35 +24,36 @@ class _RegisterPageState extends State<RegisterPage> {
   // sign user up method
   void signUserUp() async {
     // show loading circle
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
+    // showDialog(
+    //   context: context,
+    //   builder: (context) {
+    //     return const Center(
+    //       child: CircularProgressIndicator(),
+    //     );
+    //   },
+    // );
 
-    // try creating the user
-    try {
-      // check if password is confirmed
-      if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
-      } else {
-        // show error message, passwords don't match
-        showErrorMessage("Passwords don't match!");
-      }
-      // pop the loading circle
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      // pop the loading circle
-      Navigator.pop(context);
-      // show error message
-      showErrorMessage(e.code);
-    }
+    // // try creating the user
+    // try {
+    //   // check if password is confirmed
+    //   if (passwordController.text == confirmPasswordController.text) {
+    //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    //       // name : nameController.text,
+    //       email: emailController.text,
+    //       password: passwordController.text,
+    //     );
+    //   } else {
+    //     // show error message, passwords don't match
+    //     showErrorMessage("Passwords don't match!");
+    //   }
+    //   // pop the loading circle
+    //   Navigator.pop(context);
+    // } on FirebaseAuthException catch (e) {
+    //   // pop the loading circle
+    //   Navigator.pop(context);
+    //   // show error message
+    //   showErrorMessage(e.code);
+    // }
   }
 
   // error message to user
@@ -108,6 +113,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 // ),
 
                 const SizedBox(height: 25),
+                // email textfield
+                MyTextField(
+                  controller: nameController,
+                  hintText: 'Full Name',
+                  obscureText: false,
+                ),
+
+                const SizedBox(height: 10),
 
                 // email textfield
                 MyTextField(
@@ -139,7 +152,53 @@ class _RegisterPageState extends State<RegisterPage> {
                 // sign in button
                 MyButton(
                   text: "Sign Up",
-                  onTap: signUserUp,
+                  onTap: () async {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    );
+                    Random random = new Random();
+                    int randomNumber = random.nextInt(99999999);
+
+                    // try creating the user
+                    try {
+                      // check if password is confirmed
+                      if (passwordController.text ==
+                          confirmPasswordController.text) {
+                        await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                              // name : nameController.text,
+                              email: emailController.text,
+                              password: passwordController.text,
+                            )
+                            .then((value) => {
+                                  FirebaseFirestore.instance
+                                      .collection("users")
+                                      .doc(value.user!.uid)
+                                      .set({
+                                    "name": nameController.text,
+                                    "email": emailController.text,
+                                    "saldo": "",
+                                    "noRek": randomNumber,
+                                  })
+                                });
+                      } else {
+                        // show error message, passwords don't match
+                        showErrorMessage("Passwords don't match!");
+                      }
+                      // pop the loading circle
+                      Navigator.pop(context);
+                    } on FirebaseAuthException catch (e) {
+                      // pop the loading circle
+                      Navigator.pop(context);
+                      // show error message
+                      showErrorMessage(e.code);
+                    }
+                  },
                 ),
 
                 const SizedBox(height: 10),
