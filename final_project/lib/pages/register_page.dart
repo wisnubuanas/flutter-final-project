@@ -118,6 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: nameController,
                   hintText: 'Full Name',
                   obscureText: false,
+                  textCapitalization: TextCapitalization.words,
                 ),
 
                 const SizedBox(height: 10),
@@ -127,6 +128,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
+                  textCapitalization: TextCapitalization.none,
                 ),
 
                 const SizedBox(height: 10),
@@ -136,6 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
+                  textCapitalization: TextCapitalization.none,
                 ),
 
                 const SizedBox(height: 10),
@@ -145,6 +148,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: confirmPasswordController,
                   hintText: 'Confirm Password',
                   obscureText: true,
+                  textCapitalization: TextCapitalization.none,
                 ),
 
                 const SizedBox(height: 25),
@@ -182,7 +186,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       .set({
                                     "name": nameController.text,
                                     "email": emailController.text,
-                                    "saldo": "",
+                                    "saldo": 0,
                                     "noRek": randomNumber,
                                   })
                                 });

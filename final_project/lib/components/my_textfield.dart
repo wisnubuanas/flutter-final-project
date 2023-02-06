@@ -4,12 +4,14 @@ class MyTextField extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
+  final TextCapitalization textCapitalization;
 
   const MyTextField({
     super.key,
     required this.controller,
     required this.hintText,
     required this.obscureText,
+    required this.textCapitalization,
   });
 
   @override
@@ -20,6 +22,7 @@ class MyTextField extends StatelessWidget {
         style: TextStyle(color: Colors.white),
         controller: controller,
         obscureText: obscureText,
+        textCapitalization: textCapitalization,
         decoration: InputDecoration(
             // enabledBorder: const OutlineInputBorder(
             //   borderSide: BorderSide(color: Colors.grey),

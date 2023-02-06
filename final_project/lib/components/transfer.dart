@@ -35,6 +35,7 @@ class Transfer extends StatelessWidget {
                         controller: null,
                         hintText: 'Rekening Tujuan',
                         obscureText: false,
+                        textCapitalization: TextCapitalization.none,
                       ),
 
                       const SizedBox(height: 10),
@@ -43,14 +44,16 @@ class Transfer extends StatelessWidget {
                         controller: null,
                         hintText: 'Nominal',
                         obscureText: false,
+                        textCapitalization: TextCapitalization.none,
                       ),
 
                       const SizedBox(height: 10),
-                      MyTextField(
-                        controller: null,
-                        hintText: 'Password',
-                        obscureText: true,
-                      ),
+                      // MyTextField(
+                      //   controller: null,
+                      //   hintText: 'Password',
+                      //   obscureText: true,
+                      //   textCapitalization: TextCapitalization.none,
+                      // ),
 
                       const SizedBox(height: 40),
 
