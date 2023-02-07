@@ -1,4 +1,5 @@
 import 'package:final_project/components/more_apps.dart';
+import 'package:final_project/components/transfer.dart';
 import 'package:final_project/components/topup.dart';
 import 'package:final_project/components/transfer.dart';
 import 'package:final_project/layout/promo.dart';

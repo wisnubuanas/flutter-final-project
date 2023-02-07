@@ -1,15 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../components/history.dart';
+
 class Riwayat extends StatelessWidget {
   Riwayat({super.key});
 
   final user = FirebaseAuth.instance.currentUser!;
-
-  // sign user out method
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,64 +23,65 @@ class Riwayat extends StatelessWidget {
         //   )
         // ],
       ),
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Center(
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  // color: Colors.white,
-                  height: 50,
-                  width: 400,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.green),
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.grey[900]),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 250),
-                    child: Text(
-                      "+ Rp. 900000",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  // color: Colors.white,
-                  height: 50,
-                  width: 400,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.red),
-                      color: Colors.grey[900],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10, left: 250),
-                        child: Text(
-                          "- Rp. 900000",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+
+      // body: Container(
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(15.0),
+      //     child: Center(
+      //       child: Column(
+      //         // mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Container(
+      //             // color: Colors.white,
+      //             height: 50,
+      //             width: 400,
+      //             decoration: BoxDecoration(
+      //                 border: Border.all(color: Colors.green),
+      //                 borderRadius: BorderRadius.circular(8),
+      //                 color: Colors.grey[900]),
+      //             child: Padding(
+      //               padding: const EdgeInsets.only(top: 10, left: 250),
+      //               child: Text(
+      //                 "+ Rp. 900000",
+      //                 style: TextStyle(
+      //                     color: Colors.green,
+      //                     fontSize: 24,
+      //                     fontWeight: FontWeight.bold),
+      //               ),
+      //             ),
+      //           ),
+      //           SizedBox(
+      //             height: 10,
+      //           ),
+      //           Container(
+      //             // color: Colors.white,
+      //             height: 50,
+      //             width: 400,
+      //             decoration: BoxDecoration(
+      //                 border: Border.all(color: Colors.red),
+      //                 color: Colors.grey[900],
+      //                 borderRadius: BorderRadius.circular(10)),
+      //             child: Row(
+      //               // mainAxisAlignment: MainAxisAlignment.end,
+      //               children: [
+      //                 Padding(
+      //                   padding: const EdgeInsets.only(top: 10, left: 250),
+      //                   child: Text(
+      //                     "- Rp. 900000",
+      //                     style: TextStyle(
+      //                         color: Colors.red,
+      //                         fontSize: 24,
+      //                         fontWeight: FontWeight.bold),
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //           )
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
       // body: Container(
       //   child: Column(
       //     // color: Colors.deepPurple,
@@ -189,6 +187,7 @@ class Riwayat extends StatelessWidget {
       //     ],
       //   ),
       // ),
+      body: HistoryTransfer(),
     );
   }
 }

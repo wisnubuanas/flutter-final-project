@@ -15,31 +15,12 @@ class TopUp extends StatefulWidget {
 class _TopUpState extends State<TopUp> {
   User? user = FirebaseAuth.instance.currentUser!;
 
-  // final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     final saldo = TextEditingController();
     // final passwordController = TextEditingController();
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference users = firestore.collection('users');
-
-    // wrong email message popup
-    void IsiSukses() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            backgroundColor: Colors.green,
-            title: Center(
-              child: Text(
-                'Isi Saldo Berhasil',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          );
-        },
-      );
-    }
 
     return Scaffold(
         backgroundColor: Colors.black,

@@ -18,13 +18,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'NogiApps',
+      title: 'NogiPay',
       debugShowCheckedModeBanner: false,
       // theme: ThemeData(
       //     // primarySwatch: Colors.green,
       //     ),
       home: MyHomePage(
-        title: 'NogiApps',
+        title: 'NogiPay',
       ),
     );
   }

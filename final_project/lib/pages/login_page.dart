@@ -59,6 +59,11 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
+          icon: Icon(
+            Icons.cancel_outlined,
+            size: 50,
+            color: Colors.white,
+          ),
           backgroundColor: Colors.red,
           title: Center(
             child: Text(
@@ -77,6 +82,11 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
+          icon: Icon(
+            Icons.cancel_outlined,
+            size: 50,
+            color: Colors.white,
+          ),
           backgroundColor: Colors.red,
           title: Center(
             child: Text(

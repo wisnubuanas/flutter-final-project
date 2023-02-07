@@ -62,6 +62,11 @@ class _RegisterPageState extends State<RegisterPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
+          icon: Icon(
+            Icons.cancel_outlined,
+            size: 50,
+            color: Colors.white,
+          ),
           backgroundColor: Colors.red,
           title: Center(
             child: Text(
