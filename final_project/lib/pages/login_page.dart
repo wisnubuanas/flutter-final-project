@@ -112,8 +112,12 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
-
+                  // const SizedBox(height: 10),
+                  Image.asset(
+                    "images/logo6.png",
+                    width: 200,
+                    height: 100,
+                  ),
                   Text(
                     'Welcome back!',
                     style: TextStyle(

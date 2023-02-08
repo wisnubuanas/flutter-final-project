@@ -48,27 +48,32 @@ class Beranda extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Icon(
-                                Icons.signal_cellular_4_bar,
-                                size: 24,
-                              ),
-                              Text(
-                                "NogiPay",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              // Icon(
+                              //   Icons.signal_cellular_4_bar,
+                              //   size: 24,
+                              // ),
+                              // Text(
+                              //   "NogiPay",
+                              //   style: TextStyle(
+                              //       fontSize: 20, fontWeight: FontWeight.bold),
+                              // ),
+                              Image.asset(
+                                "images/logo7.png",
+                                width: 120,
+                                height: 60,
                               ),
                             ],
                           ),
                           // Spacer(),
                           Padding(
-                            padding: const EdgeInsets.only(top: 4.0, left: 8),
+                            padding: const EdgeInsets.only(left: 8),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               // mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +101,7 @@ class Beranda extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 60),
+                                SizedBox(height: 40),
                                 Text(
                                   snapshot.data!['noRek'].toString(),
                                   style: TextStyle(fontSize: 16),

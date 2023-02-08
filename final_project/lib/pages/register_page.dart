@@ -90,8 +90,12 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 25),
-
+                // const SizedBox(height: 25),
+                Image.asset(
+                  "images/logo6.png",
+                  width: 200,
+                  height: 100,
+                ),
                 Text(
                   'Create an account',
                   style: TextStyle(
