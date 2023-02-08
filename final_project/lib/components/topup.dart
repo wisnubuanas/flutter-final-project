@@ -3,7 +3,6 @@ import 'package:final_project/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import '';
 
 class TopUp extends StatefulWidget {
   TopUp({super.key});
@@ -18,9 +17,12 @@ class _TopUpState extends State<TopUp> {
   @override
   Widget build(BuildContext context) {
     final saldo = TextEditingController();
-    // final passwordController = TextEditingController();
+    String name = '';
+    GlobalKey<FormState> _formKey = GlobalKey<FormState>();
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference users = firestore.collection('users');
+    CollectionReference history =
+        FirebaseFirestore.instance.collection("users/${user!.uid}/History");
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -73,7 +75,16 @@ class _TopUpState extends State<TopUp> {
                               "saldo":
                                   FieldValue.increment(int.parse(saldo.text))
                             });
+                            // var snapshot;
+                            users.doc(user!.uid).collection("History").add({
+                              "noRek": user!.uid,
+                              "name": name,
+                              "out": saldo.text,
+                              "time": DateTime.now(),
+                              "status": "topup"
+                            });
                           });
+
                           showDialog(
                               context: context,
                               builder: (context) {

@@ -166,11 +166,34 @@ class _TransferState extends State<Transfer> {
                                             .add({
                                           "noRek": userNow!.uid,
                                           "name": data["name"],
-                                          "out": saldo.text
+                                          "out": saldo.text,
+                                          "time": DateTime.now(),
+                                          "status": "transfer"
                                         });
                                       });
 
                                       Navigator.pop(context);
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return const AlertDialog(
+                                              icon: Icon(
+                                                Icons.check_circle_outline,
+                                                size: 50,
+                                                color: Colors.white,
+                                              ),
+                                              backgroundColor: Colors.green,
+                                              title: Center(
+                                                child: Text(
+                                                  'Transfer Sukses',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            );
+                                          });
                                     },
                                     style: ButtonStyle(
                                         backgroundColor:

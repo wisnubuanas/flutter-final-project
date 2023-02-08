@@ -38,12 +38,16 @@ class HistoryTransfer extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            // if (data['status'] == 'transfer') ...[
                             // CircleAvatar(),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: [
-                                  Text("Transfer ke",
+                                  Text(
+                                      (data['status'] == 'topup')
+                                          ? 'Isi saldo'
+                                          : 'Transfer ke',
                                       style: TextStyle(
                                           fontSize: 14, color: Colors.white)),
                                   SizedBox(
@@ -65,12 +69,19 @@ class HistoryTransfer extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "- " + data["out"],
-                                style:
-                                    TextStyle(fontSize: 14, color: Colors.red),
+                                (data['status'] == 'topup')
+                                    ? '+ ${data["out"]}'
+                                    : '- ${data["out"]}',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: (data['status'] == 'topup')
+                                        ? Colors.green
+                                        : Colors.red),
                               ),
                             )
                           ],
+
+                          //wwwwww
                         ),
                       ),
                     ),
@@ -95,7 +106,7 @@ class HistoryTransfer extends StatelessWidget {
             );
           } else {
             return Center(
-              child: Text("- Data doesn\'t exist"),
+              child: Text("Anda belum melakukan transaksi"),
             );
           }
         },
