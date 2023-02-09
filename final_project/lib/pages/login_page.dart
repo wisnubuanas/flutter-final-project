@@ -15,6 +15,12 @@ class _LoginPageState extends State<LoginPage> {
   // text editing controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  late bool _passwordVisible;
+
+  @override
+  void initState() {
+    _passwordVisible = false;
+  }
 
   // sign user in method
   void signUserIn() async {
@@ -147,21 +153,80 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 30),
 
                   // email textfield
-                  MyTextField(
-                    controller: emailController,
-                    hintText: 'Email',
-                    obscureText: false,
-                    textCapitalization: TextCapitalization.none,
+                  // MyTextField(
+                  //   controller: emailController,
+                  //   hintText: 'Email',
+                  //   obscureText: false,
+                  //   textCapitalization: TextCapitalization.none,
+                  // ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.white),
+                      keyboardType: TextInputType.text,
+                      controller: emailController,
+                      obscureText: false, //This will obscure text dynamically
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red),
+                        ),
+                        fillColor: Colors.grey.shade800,
+                        filled: true,
+
+                        hintStyle: TextStyle(color: Colors.grey[500]),
+                        hintText: 'Email',
+                        // Here is key idea
+                      ),
+                    ),
                   ),
 
                   const SizedBox(height: 10),
 
                   // password textfield
-                  MyTextField(
-                    controller: passwordController,
-                    hintText: 'Password',
-                    obscureText: true,
-                    textCapitalization: TextCapitalization.none,
+                  // MyTextField(
+                  //   controller: passwordController,
+                  //   hintText: 'Password',
+                  //   obscureText: true,
+                  //   textCapitalization: TextCapitalization.none,
+                  // ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.white),
+                      keyboardType: TextInputType.text,
+                      controller: passwordController,
+                      obscureText:
+                          !_passwordVisible, //This will obscure text dynamically
+                      decoration: InputDecoration(
+                        // enabledBorder: const OutlineInputBorder(
+                        //   borderSide: BorderSide(color: Colors.grey),
+                        // ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red),
+                        ),
+                        fillColor: Colors.grey.shade800,
+                        filled: true,
+
+                        hintStyle: TextStyle(color: Colors.grey[500]),
+                        hintText: 'Password',
+                        // Here is key idea
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            // Based on passwordVisible state choose the icon
+                            _passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.deepPurple,
+                          ),
+                          onPressed: () {
+                            // Update the state i.e. toogle the state of passwordVisible variable
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
                   ),
 
                   const SizedBox(height: 10),

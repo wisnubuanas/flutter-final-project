@@ -120,7 +120,7 @@ class Profil extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 40,
+                        height: 55,
                         width: 400,
                         decoration: BoxDecoration(
                           color: Colors.grey[900],
@@ -129,7 +129,8 @@ class Profil extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -148,7 +149,7 @@ class Profil extends StatelessWidget {
                         height: 2,
                       ),
                       Container(
-                        height: 40,
+                        height: 55,
                         width: 400,
                         decoration: BoxDecoration(
                           color: Colors.grey[900],
@@ -157,7 +158,8 @@ class Profil extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -176,7 +178,7 @@ class Profil extends StatelessWidget {
                         height: 2,
                       ),
                       Container(
-                        height: 40,
+                        height: 55,
                         width: 400,
                         decoration: BoxDecoration(
                           color: Colors.grey[900],
@@ -185,7 +187,8 @@ class Profil extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -204,7 +207,7 @@ class Profil extends StatelessWidget {
                         height: 2,
                       ),
                       Container(
-                        height: 40,
+                        height: 55,
                         width: 400,
                         decoration: BoxDecoration(
                           color: Colors.grey[900],
@@ -213,7 +216,8 @@ class Profil extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -232,7 +236,7 @@ class Profil extends StatelessWidget {
                         height: 2,
                       ),
                       Container(
-                        height: 40,
+                        height: 55,
                         width: 400,
                         decoration: BoxDecoration(
                           color: Colors.grey[900],
@@ -241,7 +245,8 @@ class Profil extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

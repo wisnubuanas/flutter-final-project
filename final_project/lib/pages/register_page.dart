@@ -20,6 +20,14 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  late bool _passwordVisible;
+  late bool _confirmpasswordVisible;
+
+  @override
+  void initState() {
+    _passwordVisible = false;
+    _confirmpasswordVisible = false;
+  }
 
   // sign user up method
   void signUserUp() async {
@@ -133,32 +141,130 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 10),
 
                 // email textfield
-                MyTextField(
-                  controller: emailController,
-                  hintText: 'Email',
-                  obscureText: false,
-                  textCapitalization: TextCapitalization.none,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: TextFormField(
+                    style: TextStyle(color: Colors.white),
+                    keyboardType: TextInputType.text,
+                    controller: emailController,
+                    obscureText: false, //This will obscure text dynamically
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.red),
+                      ),
+                      fillColor: Colors.grey.shade800,
+                      filled: true,
+
+                      hintStyle: TextStyle(color: Colors.grey[500]),
+                      hintText: 'Email',
+                      // Here is key idea
+                    ),
+                  ),
                 ),
+                // MyTextField(
+                //   controller: emailController,
+                //   hintText: 'Email',
+                //   obscureText: false,
+                //   textCapitalization: TextCapitalization.none,
+                // ),
 
                 const SizedBox(height: 10),
 
                 // password textfield
-                MyTextField(
-                  controller: passwordController,
-                  hintText: 'Password',
-                  obscureText: true,
-                  textCapitalization: TextCapitalization.none,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: TextFormField(
+                    style: TextStyle(color: Colors.white),
+                    keyboardType: TextInputType.text,
+                    controller: passwordController,
+                    obscureText:
+                        !_passwordVisible, //This will obscure text dynamically
+                    decoration: InputDecoration(
+                      // enabledBorder: const OutlineInputBorder(
+                      //   borderSide: BorderSide(color: Colors.grey),
+                      // ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.red),
+                      ),
+                      fillColor: Colors.grey.shade800,
+                      filled: true,
+
+                      hintStyle: TextStyle(color: Colors.grey[500]),
+                      hintText: 'Password',
+                      // Here is key idea
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          // Based on passwordVisible state choose the icon
+                          _passwordVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.deepPurple,
+                        ),
+                        onPressed: () {
+                          // Update the state i.e. toogle the state of passwordVisible variable
+                          setState(() {
+                            _passwordVisible = !_passwordVisible;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
                 ),
+                // MyTextField(
+                //   controller: passwordController,
+                //   hintText: 'Password',
+                //   obscureText: true,
+                //   textCapitalization: TextCapitalization.none,
+                // ),
 
                 const SizedBox(height: 10),
 
                 // confirm password textfield
-                MyTextField(
-                  controller: confirmPasswordController,
-                  hintText: 'Confirm Password',
-                  obscureText: true,
-                  textCapitalization: TextCapitalization.none,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: TextFormField(
+                    style: TextStyle(color: Colors.white),
+                    keyboardType: TextInputType.text,
+                    controller: confirmPasswordController,
+                    obscureText:
+                        !_confirmpasswordVisible, //This will obscure text dynamically
+                    decoration: InputDecoration(
+                      // enabledBorder: const OutlineInputBorder(
+                      //   borderSide: BorderSide(color: Colors.grey),
+                      // ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.red),
+                      ),
+                      fillColor: Colors.grey.shade800,
+                      filled: true,
+
+                      hintStyle: TextStyle(color: Colors.grey[500]),
+                      hintText: 'Confirm Password',
+                      // Here is key idea
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          // Based on passwordVisible state choose the icon
+                          _confirmpasswordVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.deepPurple,
+                        ),
+                        onPressed: () {
+                          // Update the state i.e. toogle the state of passwordVisible variable
+                          setState(() {
+                            _confirmpasswordVisible = !_confirmpasswordVisible;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
                 ),
+                // MyTextField(
+                //   controller: confirmPasswordController,
+                //   hintText: 'Confirm Password',
+                //   obscureText: true,
+                //   textCapitalization: TextCapitalization.none,
+                // ),
 
                 const SizedBox(height: 25),
 
